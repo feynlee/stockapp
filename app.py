@@ -7,8 +7,6 @@ import Quandl
 
 app = Flask(__name__)
 
-select = {}
-
 
 @app.route('/')
 def main():
@@ -21,7 +19,7 @@ def index():
         return render_template('index.html')
     else:
         r = request.form
-        stock = request.form['ticker_name']
+        stock = r['ticker_name']
         options = ['Close', 'Adj. Close', 'Open', 'Adj. Open']
         selectoptions = []
         for item in options:
@@ -57,17 +55,6 @@ def index():
             script=script,
             div=div,
             stock=stock)
-
-        # return 'request.method was not a GET!'
-
-# @app.route('/graph',methods=['GET','POST'])
-# def index():
-#     if request.method == 'GET':
-#         return render_template('index.html')
-#     else:
-#         app.vars['ticker']=request.form['ticker_name']
-#         f = open('data.txt','w')
-#         f.write('tiker: %s/n'%app.vars['ticker'])
 
 if __name__ == '__main__':
     # app.run(debug=True)
