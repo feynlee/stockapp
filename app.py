@@ -46,7 +46,7 @@ def index():
                 y=mydata[item],
                 line_color=colorselect[item],
                 legend=stock+": "+item)
-        plot.legend.orientation = "top_left"
+        # plot.legend.orientation = "top_left"
 
         # print(r)
         # print(selectoptions)
