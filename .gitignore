@@ -1,2 +1,2 @@
-*.nogit
+/* *.nogit */
 .ipynb_checkpoints/
