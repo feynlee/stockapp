@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from bokeh.plotting import figure
 from bokeh.embed import components
-# import simplejson as json
+import simplejson as json
 # import pandas as pd
 import Quandl
 
@@ -26,7 +26,9 @@ def index():
             if item in r:
                 selectoptions.append(item)
 
-        api_key = 'yhxmmVTWyYhsYwjwQdjx'
+        with open("Quandl.json.nogit") as fh:
+            secrets = json.loads(fh.read())
+        api_key = secrets['api_key']
         mydata = Quandl.get('WIKI/'+stock, authtoken=api_key)
 
         plot = figure(
